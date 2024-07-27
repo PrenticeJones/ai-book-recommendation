@@ -3,25 +3,23 @@ import MicrophoneButton from '../components/MicrophoneButton';
 import StopButton from '../components/StopButton';
 import { useNavigate } from 'react-router-dom';
 
-const FavoriteBookPage = () => {
+const LastBookPage = () => {
   const navigate = useNavigate();
 
   const handleStartClick = () => {
-    navigate('/last-book-read');
+    navigate('/next-book');
   };
-
-  const [favoriteBook, setFavoriteBook] = useState('');
+  const [lastBook, setLastBook] = useState('');
   const [isRecording, setIsRecording] = useState(false);
 
-
   const handleInputChange = (event) => {
-    setFavoriteBook(event.target.value);
+    setLastBook(event.target.value);
   };
 
   const handleSubmit = () => {
-    console.log('Favorite Book:', favoriteBook);
+    console.log('Last Book Read:', lastBook);
     // Add logic to handle the favorite book submission
-  }; 
+  };
 
   const toggleRecording = () => {
     setIsRecording(!isRecording);
@@ -74,15 +72,15 @@ const FavoriteBookPage = () => {
 
   return (
     <div style={containerStyle}>
-      <h1 style={headingStyle}>Tell me about your<br />favorite book</h1>
+      <h1 style={headingStyle}>What was the last book<br />you read</h1>
       <div style={formStyle}>
         <div style={inputContainerStyle}>
           <input
             type="text"
-            value={favoriteBook}
+            value={lastBook}
             onChange={handleInputChange}
             style={inputStyle}
-            placeholder="My favorite book..."
+            placeholder="The last book I read..."
           />
           {isRecording ? (
             <StopButton onClick={toggleRecording} />
@@ -98,4 +96,4 @@ const FavoriteBookPage = () => {
   );
 };
 
-export default FavoriteBookPage;
+export default LastBookPage;

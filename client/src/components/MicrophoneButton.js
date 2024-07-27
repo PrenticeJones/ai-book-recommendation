@@ -1,7 +1,7 @@
 import React from 'react';
 import micIcon from '../assets/microphone.png'; // Import the microphone icon
 
-const MicrophoneButton = () => {
+const MicrophoneButton = ({onClick}) => {
   const buttonStyle = {
     width: '67px',
     height: '67px',
@@ -25,7 +25,7 @@ const MicrophoneButton = () => {
   };
 
   return (
-    <div style={buttonStyle}>
+    <div style={buttonStyle} onClick={onClick}>
       <div style={iconStyle}></div>
     </div>
   );

@@ -1,6 +1,6 @@
 import React from 'react';
 
-const StopButton = () => {
+const StopButton = ({onClick}) => {
   const buttonStyle = {
     width: '67px',
     height: '67px',
@@ -22,7 +22,7 @@ const StopButton = () => {
   };
 
   return (
-    <div style={buttonStyle}>
+    <div style={buttonStyle} onClick={onClick}>
       <div style={squareStyle}></div>
     </div>
   );
